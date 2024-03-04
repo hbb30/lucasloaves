@@ -72,15 +72,15 @@ $("#confirm_add_save").click(function(){
 });
 
 
-function editUser(userid){
+function editUser(product_id){
     // console.log("Edit button clicked with UserID: " + userid); // Add this line
-    $.post("update/update_user.php", {userid:userid}, function(data){
-        let tbl_user = JSON.parse(data);
-        $("#userid").text(tbl_user.userid);
-        $("#u_name").val(tbl_user.name);
-        $("#u_address").val(tbl_user.address);
-        $("#u_email").val(tbl_user.email);
-        $("#u_phonenumber").val(tbl_user.phonenumber);
+    $.post("update/update_user.php", {product_id:product_id}, function(data){
+        let tbl_products = JSON.parse(data);
+        $("#product_id").text(tbl_products.product_id);
+        $("#u_product_name").val(tbl_products.u_product_name);
+        $("#u_product_price").val(tbl_products.u_product_price);
+        $("#u_product_description").val(tbl_products.u_product_description);
+        $("#u_product_image").val(tbl_products.u_product_image);
         $("#updateUser").modal("show");
     });
 }
@@ -88,21 +88,21 @@ function editUser(userid){
 
 $("#update_user").submit(function(e){
     e.preventDefault();
-    $uid = $("#userid").text();
-    $name = $("#u_name").val();
-    $address = $("#u_address").val();
-    $email = $("#u_email").val();
-    $phonenumber = $("#u_phonenumber").val();
+    $uid = $("#product_id").text();
+    $u_product_name = $("#u_product_name").val();
+    $u_product_price = $("#u_product_price").val();
+    $u_product_description = $("#u_product_description").val();
+    $u_product_image = $("#u_product_image").val();
 
     $.ajax({
         url: "update/update_user.php",
         type:"POST",
         data:{
             uid: $uid,
-            name: $name,
-            address: $address,
-            email: $email,
-            phonenumber: $phonenumber
+            u_product_name: $u_product_name,
+            u_product_price: $u_product_price,
+            u_product_description: $u_product_description,
+            u_product_image: $u_product_image
         },
         success:function(response){
             if(response == "success"){

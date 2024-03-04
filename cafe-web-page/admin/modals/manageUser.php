@@ -44,26 +44,26 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header border-bottom-0">
-        <h1 class="modal-title fs-5">Update User (#<span id="userid"></span>)</h1>
+        <h1 class="modal-title fs-5">Update Product (#<span id="product_id"></span>)</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="update_user">
         <div class="modal-body py-0">
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Name" id="u_name" aria-label="default input example" autocomplete="off" required>
-            <label for="name"> Name</label>
+            <input class="form-control" type="text" placeholder="Name" id="u_product_name" aria-label="default input example" autocomplete="off" required>
+            <label for="u_product_name"> Name</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Address" id="u_address" aria-label="default input example" autocomplete="off" required>
-            <label for="address">Address</label>
+            <input class="form-control" type="text" placeholder="Price" id="u_product_price" aria-label="default input example" autocomplete="off" required>
+            <label for="u_product_price">Price</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Email" id="u_email" aria-label="default input example" autocomplete="off" required>
-            <label for="email">Email</label>
+            <input class="form-control" type="text" placeholder="Description" id="u_product_description" aria-label="default input example" autocomplete="off" required>
+            <label for="u_product_description">Description</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Phone number" id="u_phonenumber" aria-label="default input example" autocomplete="off" required>
-            <label for="phonenumber">Phone Number</label>
+            <input class="form-control" type="text" placeholder="Image" id="u_product_image" aria-label="default input example" autocomplete="off" required>
+            <label for="u_product_image">Image</label>
           </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
