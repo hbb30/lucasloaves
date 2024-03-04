@@ -19,13 +19,13 @@ if(isset($_POST["uid"])){
 
 	$data = [
 		'id' => $_POST["uid"],
-		'product_name' => $_POST["u_product_name"],
-        'product_price' => $_POST["u_product_price"],
-		'product_description' => $_POST["u_product_description"],
-		'product_image' => $_POST["u_product_image"]
+		'u_product_name' => $_POST["u_product_name"],
+        'u_product_price' => $_POST["u_product_price"],
+		'u_product_description' => $_POST["u_product_description"],
+		'u_product_image' => $_POST["u_product_image"]
 	];
 
-	$sql = "UPDATE tbl_products SET product_name=:product_name, product_price=:product_price, product_description=:product_description, product_image=:product_image WHERE product_id=:id";
+	$sql = "UPDATE tbl_products SET product_name=:u_product_name, product_price=:u_product_price, product_description=:u_product_description, product_image=:u_product_image WHERE product_id=:id";
 	
 	if($conn->prepare($sql)->execute($data)){
 		echo "success"; 
