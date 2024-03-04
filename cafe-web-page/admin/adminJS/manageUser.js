@@ -5,8 +5,6 @@ to link this JS, use <script scr = "thisfile.js"></script> in the usermanagement
 
 */
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 
 $(document).ready(function(){
     display();
@@ -80,10 +78,10 @@ function editUser(product_id){
     $.post("update/update_user.php", {product_id:product_id}, function(data){
         let tbl_products = JSON.parse(data);
         $("#product_id").text(tbl_products.product_id);
-        $("#u_product_name").val(tbl_products.u_product_name);
-        $("#u_product_price").val(tbl_products.u_product_price);
-        $("#u_product_description").val(tbl_products.u_product_description);
-        $("#u_product_image").val(tbl_products.u_product_image);
+        $("#u_product_name").val(tbl_products.product_name);
+        $("#u_product_price").val(tbl_products.product_price);
+        $("#u_product_description").val(tbl_products.product_description);
+        $("#u_product_image").val(tbl_products.product_image);
         $("#updateUser").modal("show");
     });
 }

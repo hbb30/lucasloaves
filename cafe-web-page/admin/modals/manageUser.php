@@ -22,7 +22,7 @@
           </div>
           <div class="form-floating mb-2">
             <input class="form-control" type="text" placeholder="Image" id="product_image" name="product_image" aria-label="default input example" autocomplete="off" required>
-            <label for="product_image">Phone Number</label>
+            <label for="product_image">Image</label>
           </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
