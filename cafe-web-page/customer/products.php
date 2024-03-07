@@ -14,11 +14,12 @@ if ($stmt->rowCount() > 0) {
         $products .= "<td>".$row["product_name"]."</td>";
         $products .= "<td>".$row["product_price"]."</td>";
         $products .= "<td>".$row["product_description"]."</td>";
-        $products .= "<td>".$row["product_image"]."</td>";
+        $products .= "<td><img src='" .$row['product_image']."' width='100' height='100'></td>";
+        $products .= "<td><input type='checkbox' class='product-checkbox'></td>"; // Add checkbox
         $products .= "</tr>";
     }
 } else {
-    $products = "<tr><td colspan='4'>No products found</td></tr>";
+    $products = "<tr><td colspan='5'>No products found</td></tr>";
 }
 ?>
 
@@ -54,6 +55,7 @@ if ($stmt->rowCount() > 0) {
                     <th>Price</th>
                     <th>Description</th>
                     <th>Image</th>
+                    <th>Select</th> <!-- Add a column for checkbox -->
                 </tr>
             </thead>
             <tbody id="productTable">
@@ -85,11 +87,34 @@ if ($stmt->rowCount() > 0) {
     <script>
     // Function to handle checkout button click
     function checkout() {
-        $('#checkoutModal').modal('show');
+        var selectedRows = [];
+        $('.product-checkbox:checked').each(function() {
+            var row = $(this).closest('tr');
+            var rowData = {
+                name: row.find('td:eq(0)').text(),
+                price: row.find('td:eq(1)').text(),
+                description: row.find('td:eq(2)').text(),
+                image: row.find('td:eq(3)').text()
+            };
+            selectedRows.push(rowData);
+        });
+
+        if (selectedRows.length > 0) {
+            var summaryHTML = "<ul>";
+            $.each(selectedRows, function(index, row) {
+                summaryHTML += "<li>" + row.name + " - " + row.price + "</li>";
+            });
+            summaryHTML += "</ul>";
+            $('#checkoutSummary').html(summaryHTML);
+            $('#checkoutModal').modal('show');
+        } else {
+            alert('Please select at least one item.');
+        }
     }
 
     // Function to handle confirm button click in the checkout modal
     function confirmCheckout() {
+        // Perform checkout process here
         $('#checkoutModal').modal('hide');
         alert('Your order has been confirmed!');
     }
@@ -100,7 +125,7 @@ if ($stmt->rowCount() > 0) {
             $(this).toggleClass('selected');
         }
     });
-</script>
+    </script>
 
 </body>
 </html>

@@ -9,10 +9,10 @@ if ($stmt->rowCount() > 0) {
     // Output data of each row
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
-        echo "<td>".$row["product_name"]."</td>";
+        echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row["product_price"]."</td>";
         echo "<td>".$row["product_description"]."</td>";
-        echo "<td>".$row["product_image"]."</td>";
+        echo "<td><img src='" .$row['product_image']."' width='100' height='100'></td>";
         echo "</tr>";
     }
 } else {
