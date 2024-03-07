@@ -15,11 +15,12 @@ if ($stmt->rowCount() > 0) {
         $products .= "<td>".$row["product_price"]."</td>";
         $products .= "<td>".$row["product_description"]."</td>";
         $products .= "<td><img src='" .$row['product_image']."' width='100' height='100'></td>";
+        $products .= "<td><input type='number' class='product-quantity' min='1' value='1'></td>"; // Add quantity input field
         $products .= "<td><input type='checkbox' class='product-checkbox'></td>"; // Add checkbox
         $products .= "</tr>";
     }
 } else {
-    $products = "<tr><td colspan='5'>No products found</td></tr>";
+    $products = "<tr><td colspan='6'>No products found</td></tr>";
 }
 ?>
 
@@ -55,6 +56,7 @@ if ($stmt->rowCount() > 0) {
                     <th>Price</th>
                     <th>Description</th>
                     <th>Image</th>
+                    <th>Quantity</th> <!-- Add a column for quantity -->
                     <th>Select</th> <!-- Add a column for checkbox -->
                 </tr>
             </thead>
@@ -77,6 +79,7 @@ if ($stmt->rowCount() > 0) {
                     <!-- Summary of selected items will be displayed here -->
                 </div>
                 <div class="modal-footer">
+                    <p>Total Price: <span id="totalPrice"></span></p> <!-- Display total price -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="confirmCheckout()">Confirm</button>
                 </div>
@@ -88,13 +91,18 @@ if ($stmt->rowCount() > 0) {
     // Function to handle checkout button click
     function checkout() {
         var selectedRows = [];
+        var totalPrice = 0;
         $('.product-checkbox:checked').each(function() {
             var row = $(this).closest('tr');
+            var quantity = row.find('.product-quantity').val();
+            var price = parseFloat(row.find('td:eq(1)').text());
+            totalPrice += quantity * price;
             var rowData = {
                 name: row.find('td:eq(0)').text(),
-                price: row.find('td:eq(1)').text(),
-                description: row.find('td:eq(2)').text(),
-                image: row.find('td:eq(3)').text()
+                price: price,
+                // description: row.find('td:eq(2)').text(),
+                image: row.find('td:eq(3)').find('img').attr('src'),
+                quantity: quantity
             };
             selectedRows.push(rowData);
         });
@@ -102,22 +110,51 @@ if ($stmt->rowCount() > 0) {
         if (selectedRows.length > 0) {
             var summaryHTML = "<ul>";
             $.each(selectedRows, function(index, row) {
-                summaryHTML += "<li>" + row.name + " - " + row.price + "</li>";
+                summaryHTML += "<li><img src='" + row.image + "' width='50' height='50'>" + row.name + " - " + row.price.toFixed(2) + " x " + row.quantity + "</li>"; // Display image and quantity
             });
             summaryHTML += "</ul>";
             $('#checkoutSummary').html(summaryHTML);
+            $('#totalPrice').text(totalPrice.toFixed(2)); // Display total price
             $('#checkoutModal').modal('show');
         } else {
             alert('Please select at least one item.');
         }
     }
 
-    // Function to handle confirm button click in the checkout modal
-    function confirmCheckout() {
-        // Perform checkout process here
-        $('#checkoutModal').modal('hide');
-        alert('Your order has been confirmed!');
+   // Function to handle confirm button click in the checkout modal
+function confirmCheckout() {
+    var selectedRows = [];
+    $('.product-checkbox:checked').each(function() {
+        var row = $(this).closest('tr');
+        var quantity = row.find('.product-quantity').val();
+        var price = parseFloat(row.find('td:eq(1)').text());
+        var rowData = {
+            name: row.find('td:eq(0)').text(),
+            price: price,
+            quantity: quantity
+        };
+        selectedRows.push(rowData);
+    });
+
+    if (selectedRows.length > 0) {
+        $.ajax({
+            url: 'save_checkout.php',
+            type: 'POST',
+            data: {products: selectedRows},
+            success: function(response) {
+                alert(response);
+                $('#checkoutModal').modal('hide'); // Close the modal
+                $('.product-checkbox').prop('checked', false); // Deselect checkboxes
+            },
+            error: function(xhr, status, error) {
+                alert('Error occurred: ' + error);
+            }
+        });
+    } else {
+        alert('Please select at least one item.');
     }
+}
+
 
     // Function to handle row selection
     $(document).on('click', 'tbody tr', function(e) {
