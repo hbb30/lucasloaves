@@ -3,9 +3,11 @@
     session_start();
     if(isset($_SESSION['userid'])){
         if($_SESSION['userlvl']=='admin'){
-            header("location: Admin/usermanagement.php");
+            header("location: admin/dashboard.php");
+        }else if($_SESSION['userlvl']=='teacher'){
+            header("location: teachers/dashboard.php");
         }else{
-            header("location: NonAdmin/dashboard.php");
+            header("location: students/dashboard.php");
         }
     }
 ?>
@@ -68,12 +70,14 @@
                     e.preventDefault();
                     $uname = $("#uname").val();
                     $password = $("#password").val();
-                    $.post("login.php",{uname:$uname, pass:$password},function(data){ 
+                    $.post("login.php",{uname:$uname, password:$password},function(data){ 
                         // alert(data);
-                       if(data == 'non-admin'){
-                        window.location.href = "NonAdmin/dashboard.php";
-                       }else if(data == 'admin'){
-                        window.location.href = "Admin/usermanagement.php";
+                       if(data == 'admin'){
+                        window.location.href = "admin/dashboard.php";
+                       }else if(data == 'teacher'){
+                        window.location.href = "teachers/dashboard.php";
+                       }else if(data == 'students'){
+                           window.location.href = "students/dashboard.php";
                        }else{
                         $("#error").modal("show");
                        }

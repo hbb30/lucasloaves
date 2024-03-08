@@ -2,27 +2,31 @@
     session_start();
     if(isset($_SESSION['userid'])){
         if($_SESSION['userlvl']=='admin'){
-            header("location: Admin/usermanagement.php");
+            header("location: admin/dashboard.php");
+        }else if($_SESSION['userlvl']=='teacher'){
+            header("location: teachers/dashboard.php");
         }else{
-            header("location: NonAdmin/dashboard.php");
+            header("location: students/dashboard.php");
         }
     }
     require("connection.php");
     if(isset($_POST['uname'])){
         $uname = $_POST['uname'];
-        $pass = $_POST['pass'];
+        $password = $_POST['password'];
 
-        $sql = "SELECT * FROM tbl_user WHERE username = '$uname' AND password = '$pass'";
+        $sql = "SELECT * FROM tbl_user WHERE username = '$uname' AND password = '$password'";
         $query = $conn->query($sql);
         if($query->rowCount() > 0){
             foreach($query as $row){
                 $_SESSION['userid'] = $row['userid'];
-                $_SESSION['userlvl'] = $row['userlevel'];
+                $_SESSION['userlvl'] = $row['userlvl'];
             }
             if($_SESSION['userlvl']=='admin'){
                 echo "admin";
+            }else if($_SESSION['userlvl']=='teacher'){
+                echo "teacher";
             }else{
-                echo "non-admin";
+                echo "student";
             }
 
         }else{
