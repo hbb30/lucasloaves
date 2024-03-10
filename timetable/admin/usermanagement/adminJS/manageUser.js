@@ -93,10 +93,10 @@ $("#update_user").submit(function(e){
         url: "update/update_user.php",
         type:"POST",
         data:{
-            uid: $uid,
-            username: $username,
-            password: $password,
-            userlevel: $userlevel
+            uid:$uid,
+            username:$username,
+            password:$password,
+            userlevel:$userlevel
         },
         success:function(response){
             if(response == "success"){
