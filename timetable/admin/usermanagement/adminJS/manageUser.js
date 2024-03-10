@@ -74,10 +74,9 @@ function editUser(userid){
     $.post("update/update_user.php", {userid:userid}, function(data){
         let tbl_user = JSON.parse(data);
         $("#userid").text(tbl_user.userid);
-        $("#u_name").val(tbl_user.name);
-        $("#u_address").val(tbl_user.address);
-        $("#u_email").val(tbl_user.email);
-        $("#u_phonenumber").val(tbl_user.phonenumber);
+        $("#u_username").val(tbl_user.username);
+        $("#u_password").val(tbl_user.password);
+        $("#u_userlevel").val(tbl_user.userlvl);
         $("#updateUser").modal("show");
     });
 }
@@ -86,20 +85,18 @@ function editUser(userid){
 $("#update_user").submit(function(e){
     e.preventDefault();
     $uid = $("#userid").text();
-    $name = $("#u_name").val();
-    $address = $("#u_address").val();
-    $email = $("#u_email").val();
-    $phonenumber = $("#u_phonenumber").val();
+    $username = $("#u_username").val();
+    $password = $("#u_password").val();
+    $userlevel = $("#u_userlevel").val();
 
     $.ajax({
         url: "update/update_user.php",
         type:"POST",
         data:{
             uid: $uid,
-            name: $name,
-            address: $address,
-            email: $email,
-            phonenumber: $phonenumber
+            username: $username,
+            password: $password,
+            userlevel: $userlevel
         },
         success:function(response){
             if(response == "success"){

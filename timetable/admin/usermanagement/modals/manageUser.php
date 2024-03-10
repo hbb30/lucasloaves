@@ -46,20 +46,16 @@
       <form id="update_user">
         <div class="modal-body py-0">
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Name" id="u_name" aria-label="default input example" autocomplete="off" required>
-            <label for="name"> Name</label>
+            <input class="form-control" type="text" placeholder="Username" id="u_username" aria-label="default input example" autocomplete="off" required>
+            <label for="u_username"> Name</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Address" id="u_address" aria-label="default input example" autocomplete="off" required>
-            <label for="address">Address</label>
+            <input class="form-control" type="text" placeholder="Password" id="u_password" aria-label="default input example" autocomplete="off" required>
+            <label for="u_password">Password</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Email" id="u_email" aria-label="default input example" autocomplete="off" required>
-            <label for="email">Email</label>
-          </div>
-          <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Phone number" id="u_phonenumber" aria-label="default input example" autocomplete="off" required>
-            <label for="phonenumber">Phone Number</label>
+            <input class="form-control" type="text" placeholder="User Level" id="u_userlevel" aria-label="default input example" autocomplete="off" required>
+            <label for="u_userlevel">User Level</label>
           </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

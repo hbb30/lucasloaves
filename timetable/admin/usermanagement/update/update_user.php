@@ -1,5 +1,5 @@
 <?php
-require("../connection.php");
+require("../../../connection.php");
 if(isset($_POST['userid'])){
 	$userid=$_POST['userid'];
 	$sql="SELECT * FROM tbl_user WHERE userid = '$userid'";
@@ -19,13 +19,12 @@ if(isset($_POST["uid"])){
 
 	$data = [
 		'id' => $_POST["uid"],
-		'name' => $_POST["u_name"],
-        'address' => $_POST["u_address"],
-		'email' => $_POST["u_email"],
-		'phonenumber' => $_POST["u_phonenumber"]
+		'username' => $_POST["u_username"],
+        'password' => $_POST["u_password"],
+		'userlevel' => $_POST["u_userlevel"]
 	];
 
-	$sql = "UPDATE tbl_user SET name=:name, address=:address, email=:email, phonenumber=:phonenumber WHERE userid=:id";
+	$sql = "UPDATE tbl_user SET username=:username, password=:password, userlvl=:userlevel WHERE userid=:id";
 	
 	if($conn->prepare($sql)->execute($data)){
 		echo "success"; 
