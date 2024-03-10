@@ -2,7 +2,7 @@
 require_once("../../../connection.php");
 if(isset($_POST['search'])){
     $search = $_POST['search'];
-    $sql = "SELECT * FROM tbl_user WHERE name LIKE '%$search%'"; 
+    $sql = "SELECT * FROM tbl_user WHERE username LIKE '%$search%'"; 
 
 }else{
     $sql = "SELECT userid, username, userlvl FROM tbl_user";

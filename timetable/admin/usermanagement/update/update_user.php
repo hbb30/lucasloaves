@@ -20,7 +20,7 @@ if(isset($_POST["uid"])){
 	$data = [
 		'id' => $_POST["uid"],
 		'username' => $_POST["u_username"],
-        'password' => $_POST["u_password"],
+		'password' => $_POST["u_password"],
 		'userlevel' => $_POST["u_userlevel"]
 	];
 
