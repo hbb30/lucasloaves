@@ -44,26 +44,25 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header border-bottom-0">
-        <h1 class="modal-title fs-5">Update User (#<i id="userid"></i>)</h1>
+        <h1 class="modal-title fs-5">Update User (#<span id="userid"></span>)</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="update_user">
         <div class="modal-body py-0">
-
-        <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Name" id="name" aria-label="default input example" autocomplete="off" required>
+          <div class="form-floating mb-2">
+            <input class="form-control" type="text" placeholder="Name" id="u_name" aria-label="default input example" autocomplete="off" required>
             <label for="name"> Name</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Address" id="address" aria-label="default input example" autocomplete="off" required>
+            <input class="form-control" type="text" placeholder="Address" id="u_address" aria-label="default input example" autocomplete="off" required>
             <label for="address">Address</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Email" id="email" aria-label="default input example" autocomplete="off" required>
+            <input class="form-control" type="text" placeholder="Email" id="u_email" aria-label="default input example" autocomplete="off" required>
             <label for="email">Email</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Phone number" id="phonenumber" aria-label="default input example" autocomplete="off" required>
+            <input class="form-control" type="text" placeholder="Phone number" id="u_phonenumber" aria-label="default input example" autocomplete="off" required>
             <label for="phonenumber">Phone Number</label>
           </div>
         </div>

@@ -19,10 +19,10 @@ if(isset($_POST["uid"])){
 
 	$data = [
 		'id' => $_POST["uid"],
-		'name' => $_POST["name"],
-        'address' => $_POST["address"],
-        'email' => $_POST["email"],
-		'phonenumber' => $_POST["phonenumber"]
+		'name' => $_POST["u_name"],
+        'address' => $_POST["u_address"],
+		'email' => $_POST["u_email"],
+		'phonenumber' => $_POST["u_phonenumber"]
 	];
 
 	$sql = "UPDATE tbl_user SET name=:name, address=:address, email=:email, phonenumber=:phonenumber WHERE userid=:id";

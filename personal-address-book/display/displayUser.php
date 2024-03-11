@@ -5,7 +5,7 @@ if(isset($_POST['search'])){
     $sql = "SELECT * FROM tbl_user WHERE name LIKE '%$search%'"; 
 
 }else{
-    $sql = "SELECT * FROM tbl_user";
+    $sql = "SELECT userid, name, address, email, phonenumber FROM tbl_user";
 }
 
 $result = $conn->query($sql);
