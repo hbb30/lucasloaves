@@ -2,9 +2,9 @@
 <?php
     session_start();
     if(isset($_SESSION['userid'])){
-        if($_SESSION['userlvl']=='admin'){
+        if($_SESSION['userlevel']=='admin'){
             header("location: admin/dashboard.php");
-        }else if($_SESSION['userlvl']=='teacher'){
+        }else if($_SESSION['userlevel']=='teacher'){
             header("location: teachers/dashboard.php");
         }else{
             header("location: students/dashboard.php");

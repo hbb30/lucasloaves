@@ -19,12 +19,12 @@ if(isset($_POST["uid"])){
 
 	$data = [
 		'id' => $_POST["uid"],
-		'username' => $_POST["u_username"],
-		'password' => $_POST["u_password"],
-		'userlevel' => $_POST["u_userlevel"]
+		'u_username' => $_POST["u_username"],
+		'u_password' => $_POST["u_password"],
+		'u_userlevel' => $_POST["u_userlevel"]
 	];
 
-	$sql = "UPDATE tbl_user SET username=:username, password=:password, userlvl=:userlevel WHERE userid=:id";
+	$sql = "UPDATE tbl_user SET username=:u_username, password=:u_password, userlevel=:u_userlevel WHERE userid=:id";
 	
 	if($conn->prepare($sql)->execute($data)){
 		echo "success"; 

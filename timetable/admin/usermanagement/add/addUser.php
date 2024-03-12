@@ -9,7 +9,7 @@
         ];
         
         //sql (insert / add)
-        $sql = "INSERT tbl_user (username, password, userlvl) VALUES (:username, :password, :userlevel)";
+        $sql = "INSERT tbl_user (username, password, userlevel) VALUES (:username, :password, :userlevel)";
         //prepare
         //execute and validate if execution success
         if($conn->prepare($sql)->execute($data)){

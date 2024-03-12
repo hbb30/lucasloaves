@@ -1,9 +1,9 @@
 <?php
     session_start();
     if(isset($_SESSION['userid'])){
-        if($_SESSION['userlvl']=='admin'){
+        if($_SESSION['userlevel']=='admin'){
             header("location: admin/dashboard.php");
-        }else if($_SESSION['userlvl']=='teacher'){
+        }else if($_SESSION['userlevel']=='teacher'){
             header("location: teachers/dashboard.php");
         }else{
             header("location: students/dashboard.php");
@@ -19,11 +19,11 @@
         if($query->rowCount() > 0){
             foreach($query as $row){
                 $_SESSION['userid'] = $row['userid'];
-                $_SESSION['userlvl'] = $row['userlvl'];
+                $_SESSION['userlevel'] = $row['userlevel'];
             }
-            if($_SESSION['userlvl']=='admin'){
+            if($_SESSION['userlevel']=='admin'){
                 echo "admin";
-            }else if($_SESSION['userlvl']=='teacher'){
+            }else if($_SESSION['userlevel']=='teacher'){
                 echo "teacher";
             }else{
                 echo "student";

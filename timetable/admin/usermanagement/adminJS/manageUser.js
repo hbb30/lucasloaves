@@ -76,7 +76,7 @@ function editUser(userid){
         $("#userid").text(tbl_user.userid);
         $("#u_username").val(tbl_user.username);
         $("#u_password").val(tbl_user.password);
-        $("#u_userlevel").val(tbl_user.userlvl);
+        $("#u_userlevel").val(tbl_user.userlevel);
         $("#updateUser").modal("show");
     });
 }
@@ -85,18 +85,18 @@ function editUser(userid){
 $("#update_user").submit(function(e){
     e.preventDefault();
     $uid = $("#userid").text();
-    $username = $("#u_username").val();
-    $password = $("#u_password").val();
-    $userlevel = $("#u_userlevel").val();
+    $u_username = $("#u_username").val();
+    $u_password = $("#u_password").val();
+    $u_userlevel = $("#u_userlevel").val();
 
     $.ajax({
         url: "update/update_user.php",
         type:"POST",
         data:{
             uid:$uid,
-            username:$username,
-            password:$password,
-            userlevel:$userlevel
+            u_username:$u_username,
+            u_password:$u_password,
+            u_userlevel:$u_userlevel
         },
         success:function(response){
             if(response == "success"){
