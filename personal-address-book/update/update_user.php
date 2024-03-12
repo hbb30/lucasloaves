@@ -19,13 +19,13 @@ if(isset($_POST["uid"])){
 
 	$data = [
 		'id' => $_POST["uid"],
-		'name' => $_POST["u_name"],
-        'address' => $_POST["u_address"],
-		'email' => $_POST["u_email"],
-		'phonenumber' => $_POST["u_phonenumber"]
+		'u_name' => $_POST["u_name"],
+        'u_address' => $_POST["u_address"],
+		'u_email' => $_POST["u_email"],
+		'u_phonenumber' => $_POST["u_phonenumber"]
 	];
 
-	$sql = "UPDATE tbl_user SET name=:name, address=:address, email=:email, phonenumber=:phonenumber WHERE userid=:id";
+	$sql = "UPDATE tbl_user SET name=:u_name, address=:u_address, email=:u_email, phonenumber=:u_phonenumber WHERE userid=:id";
 	
 	if($conn->prepare($sql)->execute($data)){
 		echo "success"; 

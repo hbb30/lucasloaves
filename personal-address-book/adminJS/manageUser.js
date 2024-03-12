@@ -89,20 +89,20 @@ function editUser(userid){
 $("#update_user").submit(function(e){
     e.preventDefault();
     $uid = $("#userid").text();
-    $name = $("#u_name").val();
-    $address = $("#u_address").val();
-    $email = $("#u_email").val();
-    $phonenumber = $("#u_phonenumber").val();
+    $u_name = $("#u_name").val();
+    $u_address = $("#u_address").val();
+    $u_email = $("#u_email").val();
+    $u_phonenumber = $("#u_phonenumber").val();
 
     $.ajax({
         url: "update/update_user.php",
         type:"POST",
         data:{
             uid: $uid,
-            name: $name,
-            address: $address,
-            email: $email,
-            phonenumber: $phonenumber
+            u_name: $u_name,
+            u_address: $u_address,
+            u_email: $u_email,
+            u_phonenumber: $u_phonenumber
         },
         success:function(response){
             if(response == "success"){
