@@ -37,6 +37,7 @@ $("#confirm_add_save").click(function(){
     $course_name = $("#course_name").val();
     $course_room = $("#course_room").val();
     $course_sched = $("#course_sched").val();
+    $course_teacher = $("#course_teacher").val();
 
     $.ajax({
         url:"add/addUser.php",
@@ -44,7 +45,8 @@ $("#confirm_add_save").click(function(){
         data:{
             course_name:$course_name,
             course_room:$course_room,
-            course_sched:$course_sched
+            course_sched:$course_sched,
+            course_teacher:$course_teacher
         },
         success: function(response){
             console.log("AJAX request successful"); // Log message to console
@@ -77,6 +79,7 @@ function editUser(courseid){
         $("#u_course_name").val(tbl_course.course_name);
         $("#u_course_room").val(tbl_course.course_room);
         $("#u_course_sched").val(tbl_course.course_sched);
+        $("#u_course_teacher").val(tbl_course.course_teacher);
         $("#updateUser").modal("show");
     });
 }
@@ -88,6 +91,7 @@ $("#update_user").submit(function(e){
     $u_course_name = $("#u_course_name").val();
     $u_course_room = $("#u_course_room").val();
     $u_course_sched = $("#u_course_sched").val();
+    $u_course_teacher = $("#u_course_teacher").val();
 
     $.ajax({
         url: "update/update_user.php",
@@ -96,7 +100,8 @@ $("#update_user").submit(function(e){
             uid:$uid,
             u_course_name:$u_course_name,
             u_course_room:$u_course_room,
-            u_course_sched:$u_course_sched
+            u_course_sched:$u_course_sched,
+            u_course_teacher:$u_course_teacher
         },
         success:function(response){
             if(response == "success"){

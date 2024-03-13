@@ -66,6 +66,7 @@
                     <th scope="col">Course Title</th>
                     <th scope="col">Room</th>
                     <th scope="col">Sched</th>
+                    <th scope="col">Teacher</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>

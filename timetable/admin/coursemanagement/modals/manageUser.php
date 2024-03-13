@@ -20,6 +20,10 @@
             <input class="form-control" type="text" placeholder="Schedule" id="course_sched" name="course_sched" aria-label="default input example" autocomplete="off" required>
             <label for="course_sched">Schedule</label>
           </div>
+          <div class="form-floating mb-2">
+            <input class="form-control" type="text" placeholder="Teacher" id="course_teacher" name="course_teacher" aria-label="default input example" autocomplete="off" required>
+            <label for="course_teacher">Teacher</label>
+          </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
           <button type="submit" class="btn btn-lg btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -56,6 +60,10 @@
           <div class="form-floating mb-2">
             <input class="form-control" type="text" placeholder="Schedule" id="u_course_sched" aria-label="default input example" autocomplete="off" required>
             <label for="u_course_sched">Schedule</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input class="form-control" type="text" placeholder="Teacher" id="u_course_teacher" aria-label="default input example" autocomplete="off" required>
+            <label for="u_course_teacher">Teacher</label>
           </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

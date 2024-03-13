@@ -21,10 +21,11 @@ if(isset($_POST["uid"])){
 		'id' => $_POST["uid"],
 		'u_course_name' => $_POST["u_course_name"],
 		'u_course_room' => $_POST["u_course_room"],
-		'u_course_sched' => $_POST["u_course_sched"]
+		'u_course_sched' => $_POST["u_course_sched"],
+		'u_course_teacher' => $_POST["u_course_teacher"]
 	];
 
-	$sql = "UPDATE tbl_course SET course_name=:u_course_name, course_room=:u_course_room, course_sched=:u_course_sched WHERE courseid=:id";
+	$sql = "UPDATE tbl_course SET course_name=:u_course_name, course_room=:u_course_room, course_sched=:u_course_sched, course_teacher=:u_course_teacher WHERE courseid=:id";
 	
 	if($conn->prepare($sql)->execute($data)){
 		echo "success"; 
