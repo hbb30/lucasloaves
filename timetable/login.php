@@ -12,7 +12,7 @@
             exit;
         }
     }
-    require("connection.php");
+    require_once("connection.php");
     if(isset($_POST['uname'])){
         $uname = $_POST['uname'];
         $password = $_POST['password'];
