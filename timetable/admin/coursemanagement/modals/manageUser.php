@@ -40,22 +40,22 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header border-bottom-0">
-        <h1 class="modal-title fs-5">Update User (#<span id="userid"></span>)</h1>
+        <h1 class="modal-title fs-5">Update User (#<span id="courseid"></span>)</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form id="update_user">
         <div class="modal-body py-0">
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Username" id="u_username" aria-label="default input example" autocomplete="off" required>
-            <label for="u_username"> Name</label>
+            <input class="form-control" type="text" placeholder="Course Name" id="u_course_name" aria-label="default input example" autocomplete="off" required>
+            <label for="u_course_name"> Course Name</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="Password" id="u_password" aria-label="default input example" autocomplete="off" required>
-            <label for="u_password">Password</label>
+            <input class="form-control" type="text" placeholder="Room" id="u_course_room" aria-label="default input example" autocomplete="off" required>
+            <label for="u_course_room">Room</label>
           </div>
           <div class="form-floating mb-2">
-            <input class="form-control" type="text" placeholder="User Level" id="u_userlevel" aria-label="default input example" autocomplete="off" required>
-            <label for="u_userlevel">User Level</label>
+            <input class="form-control" type="text" placeholder="Schedule" id="u_course_sched" aria-label="default input example" autocomplete="off" required>
+            <label for="u_course_sched">Schedule</label>
           </div>
         </div>
         <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

@@ -69,14 +69,14 @@ $("#confirm_add_save").click(function(){
 });
 
 
-function editUser(userid){
+function editUser(courseid){
     // console.log("Edit button clicked with UserID: " + userid); // Add this line
-    $.post("update/update_user.php", {userid:userid}, function(data){
-        let tbl_user = JSON.parse(data);
-        $("#userid").text(tbl_user.userid);
-        $("#u_username").val(tbl_user.username);
-        $("#u_password").val(tbl_user.password);
-        $("#u_userlevel").val(tbl_user.userlevel);
+    $.post("update/update_user.php", {courseid:courseid}, function(data){
+        let tbl_course = JSON.parse(data);
+        $("#courseid").text(tbl_course.courseid);
+        $("#u_course_name").val(tbl_course.course_name);
+        $("#u_course_room").val(tbl_course.course_room);
+        $("#u_course_sched").val(tbl_course.course_sched);
         $("#updateUser").modal("show");
     });
 }
@@ -84,19 +84,19 @@ function editUser(userid){
 
 $("#update_user").submit(function(e){
     e.preventDefault();
-    $uid = $("#userid").text();
-    $u_username = $("#u_username").val();
-    $u_password = $("#u_password").val();
-    $u_userlevel = $("#u_userlevel").val();
+    $uid = $("#courseid").text();
+    $u_course_name = $("#u_course_name").val();
+    $u_course_room = $("#u_course_room").val();
+    $u_course_sched = $("#u_course_sched").val();
 
     $.ajax({
         url: "update/update_user.php",
         type:"POST",
         data:{
             uid:$uid,
-            u_username:$u_username,
-            u_password:$u_password,
-            u_userlevel:$u_userlevel
+            u_course_name:$u_course_name,
+            u_course_room:$u_course_room,
+            u_course_sched:$u_course_sched
         },
         success:function(response){
             if(response == "success"){
