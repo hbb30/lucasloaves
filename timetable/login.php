@@ -4,9 +4,9 @@
         if($_SESSION['userlevel']=='admin'){
             header("location: admin/dashboard.php");
         }else if($_SESSION['userlevel']=='teacher'){
-            header("location: teachers/dashboard.php");
+            header("location: teachers/teacher_dashboard.php");
         }else{
-            header("location: students/dashboard.php");
+            header("location: students/student_dashboard.php");
         }
     }
     require("connection.php");
