@@ -3,10 +3,13 @@
     if(isset($_SESSION['userid'])){
         if($_SESSION['userlevel']=='admin'){
             header("location: admin/dashboard.php");
+            exit;
         }else if($_SESSION['userlevel']=='teacher'){
-            header("location: teachers/t_dashboard.php");
+            header("location: teachers/teacher_dashboard.php");
+            exit;
         }else{
             header("location: students/student_dashboard.php");
+            exit;
         }
     }
     require("connection.php");

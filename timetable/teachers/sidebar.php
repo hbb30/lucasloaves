@@ -63,8 +63,7 @@
 
 <div id="sidebar">
   <ul>
-    <li> <a id="userManagement" href="usermanagement/manage_user.php">User Management</a></li>
-    <li> <a id="courseManagement" href="coursemanagement/manage_course.php">Course Management</a></li>
+    <li> <a id="teacherDashboard" href="teacher_dashboard.php">Dashboard</a></li>
   </ul>
 </div>
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +69,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- script is in JS folder so that the code is cleaner and sorted -->
 <script src="adminJs/manageUser.js"></script>
-<script src="../../confirmLogout.js"></script>
+<script src="../confirmLogout.js"></script>
 <script>
   
 </script>
